@@ -1,0 +1,17 @@
+gcp:
+  project_id: "your-gcp-project-id"
+  region: "us-central1"
+
+bigquery:
+  dataset: "feature_store"
+  raw_table: "raw_customers"
+  feature_table: "customer_features"
+
+model:
+  path: "models/churn_model.joblib"
+  target_column: "churned"
+  test_size: 0.2
+
+api:
+  host: "0.0.0.0"
+  port: 8000
