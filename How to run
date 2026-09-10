@@ -1,0 +1,22 @@
+# 1. Install
+pip install -r requirements.txt
+
+# 2. Ingest raw data → BigQuery
+python -m src.ingest
+
+# 3. Run feature engineering (PySpark)
+python -m src.feature_engineering
+
+# 4. Train model
+python -m src.train
+
+# 5. Serve predictions
+python -m src.predict_api
+
+# 6. Test prediction
+curl -X POST http://localhost:8000/predict/customer \
+  -H "Content-Type: application/json" \
+  -d '{"customer_id": "CUST_000042"}'
+
+# 7. Run tests
+pytest tests/
